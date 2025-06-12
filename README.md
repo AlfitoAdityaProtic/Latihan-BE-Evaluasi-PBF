@@ -5,8 +5,7 @@
 Clone repositori backend ke dalam direktori lokal:
 
 ```bash
-git clone https://github.com/abdau88/eval_pbf_backend.git eval_pbf_backend
-cd eval_pbf_backend
+git clone https://github.com/AlfitoAdityaProtic/Latihan-BE-Evaluasi-PBF.git
 ```
 
 ### 2. Install Dependensi
@@ -41,7 +40,7 @@ database.default.DBDriver = MySQLi
 * Import file SQL berikut ke dalam database tersebut:
 
 ```sql
-CREATE TABLE `dosen` (
+CREATE TABLE `dosens` (
   `nama` varchar(100) NOT NULL,
   `nidn` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -53,18 +52,21 @@ INSERT INTO `dosens` (`nama`, `nidn`, `email`, `prodi`) VALUES
 ('Dr. Bambang', '12345678', 'bambang@kampus.ac.id', 'Teknik Informatika'),
 ('Dr. Siti', '87654321', 'siti@kampus.ac.id', 'Sistem Informasi');
 
-CREATE TABLE `mahasiswa` (
+CREATE TABLE `mahasiswas` (
   `nama` varchar(100) NOT NULL,
   `nim` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
   `prodi` varchar(100) NOT NULL,
-  PRIMARY KEY (`npm`)
+  `prodi` varchar(100) NOT NULL,
+  `wali_dosen_id` varchar(20) NOT NULL,
+  PRIMARY KEY (`nim`)
 );
 
-INSERT INTO `mahasiswas` (`nama`, `nim`, `email`, `prodi`) VALUES
-('Andi Saputra', '210001', 'andi@kampus.ac.id', 'Teknik Informatika'),
-('Rina Melati', '210002', 'rina@kampus.ac.id', 'Sistem Informasi');
+INSERT INTO `mahasiswas` (`nama`, `nim`, `email`, `prodi`, `wali_dosen_id`) VALUES
+('Andi Saputra', '210001', 'andi@kampus.ac.id', 'Teknik Informatika','<isikan nidn dari table dosens>'),
+('Rina Melati', '210002', 'rina@kampus.ac.id', 'Sistem Informasi','<isikan nidn dari table dosens>');
 ```
+* notes : buat foreign key `mahasiswas.wali_dosen_id` ke `dosens.nidn` dengan `on delete` cascade dan `on update` cascade
 
 ### 5. Jalankan Server Development
 
