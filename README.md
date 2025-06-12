@@ -57,7 +57,6 @@ CREATE TABLE `mahasiswas` (
   `nim` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
   `prodi` varchar(100) NOT NULL,
-  `prodi` varchar(100) NOT NULL,
   `wali_dosen_id` varchar(20) NOT NULL,
   PRIMARY KEY (`nim`)
 );
